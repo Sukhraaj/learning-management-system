@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 function connection(){
-    mongoose.connect('mongodb://localhost:27017/lms2').then(() => {
+    mongoose.connect(process.env.MONGO_URL).then(() => {
         console.log("Database connected successfully");
     }).catch((err)=>{
         console.log("error",err);

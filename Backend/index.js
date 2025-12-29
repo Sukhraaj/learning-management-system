@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const connection = require('./database/connection');
 const students = require('./database/Students');
 const student = require('./students/main');
@@ -17,7 +18,8 @@ app.use('/students', student);
 app.use('/teachers', teachers);
 app.use('/admin', admin);
 
-app.listen(9000, () => {
+const PORT = process.env.PORT
+app.listen(PORT, () => {
     console.log("this server is running at port 9000");
     connection();
 })
